@@ -1,0 +1,86 @@
+Project Workflow Overview
+This is a menu-driven command line application that lets users:
+
+Add a pet
+
+View all pets
+
+Delete a pet
+
+Edit/Update a pet
+
+Search for a pet
+
+Exit the program
+
+All data is stored permanently using pickle so it's saved even after closing the program.
+
+FILENAME = 'pets.pkl'
+This is the file where all pet data is stored.
+It's a .pkl file (pickle format).
+
+load_pets() – Load Data from File:
+Check if the file pets.pkl exists.
+If yes:
+Open the file in read-binary mode ('rb').
+Use pickle.load() to deserialize the data (load it back into a Python list).
+If no:
+Return an empty list — no pets registered yet.
+------------------------------------------------------------------
+save_pets(pets) – Save Data to File
+Open the file in write-binary mode ('wb').
+Use pickle.dump() to serialize the list of pets and save it to disk.
+
+-------------------------------------------------------------
+ add_pet(pets) – Add a Pet
+ Get pet details from the user.
+
+Create a dict with the pet's info.
+
+Append the dictionary to the pets list.
+
+Save the updated list using save_pets().
+-------------------------------------------------------
+
+view_pets(pets) – View All Pets
+If the pets list is empty, print a message.
+Otherwise, loop through the list and print each pet with an index.
+
+----------------------------------------------------------------
+delete_pet(pets) – Delete a Pet:
+Show all pets using view_pets().
+Ask user for the pet number to delete.
+Remove the pet from the list using pop(index - 1).
+Save the new list using save_pets()
+
+-----------------------------------------------------------
+edit_pet(pets) – Edit/Update a Pet:
+Show all pets.
+
+Ask which pet to update.
+
+Ask for new name/age/type. If left blank, keep the old value.
+
+Update only the fields the user inputs.
+
+Save the updated list.
+-----------------------------------------------------------
+search_pet(pets) – Search for Pets:
+Ask for a keyword.
+
+Search in both pet name and type (case-insensitive).
+
+If matches found, display them.
+
+If no matches, show message.
+-------------------------------------------
+: main() – Menu Loop:
+Load pet list from file when the program starts.
+
+Display a menu in a loop.
+
+Call the appropriate function based on user choice
+
+
+
+
